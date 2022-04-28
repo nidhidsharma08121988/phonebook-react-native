@@ -1,10 +1,13 @@
 import React from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import {View, Text, StyleSheet, TextInput} from 'react-native'
 
 const Header = ({title="Contacts" , searchBar=true,addButton=true }) => {
   return <View style={styles.header}>
     <Text style={styles.title}>{title}</Text>
+    <View>
+      <TextInput testID="search-bar"/>
     </View>
+</View>
 }
 
 const styles= StyleSheet.create({
