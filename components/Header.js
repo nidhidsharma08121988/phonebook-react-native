@@ -1,7 +1,8 @@
 import React from 'react'
-import {View} from 'react-native'
-const Header = () => {
-  return <View></View>
+import {View, Text} from 'react-native'
+
+const Header = ({title="" , searchBar=true,addButton=true }) => {
+  return <View><Text>{title}</Text></View>
 }
 
 export default Header
