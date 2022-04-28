@@ -5,10 +5,10 @@ import {render} from '@testing-library/react-native'
 
 describe('header', () => {
   it('should display title', () => {
-    // const {getByText} = render(
-    //   <Header title="Contacts" searchBar={true} addButton={true} />
-    // )
-    // expect(getByText('Contacts')).toBeTruthy()
+    const {getByText} = render(
+      <Header title="Contacts" searchBar={true} addButton={true} />
+    )
+    expect(getByText('Contacts')).toBeTruthy()
   })
   it('should display search bar', () => {})
   it('should display contacts title', () => {})
