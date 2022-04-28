@@ -12,7 +12,13 @@ describe('header', () => {
     const myTitle = queryByText(title)
     expect(myTitle).toBeTruthy()
   })
-  it('should display search bar', () => {})
+  it('should display search bar', () => {
+    const {queryByTestId} = render(  
+    <Header searchBar={true} />
+   )
+   const search = queryByTestId('search-bar')
+   expect(search).toBeTruthy()
+  })
   it('should display contacts title', () => {})
   it('should display add button', () => {})
 })
