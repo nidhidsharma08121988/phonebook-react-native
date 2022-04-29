@@ -19,5 +19,11 @@ describe('header', () => {
    const search = queryByTestId('search-bar')
    expect(search).toBeTruthy()
   })
-  it('should display add button', () => {})
+  it('should display add button', () => {
+    const {queryByTestId} = render(  
+    <Header searchBar={true} />
+   )
+   const addBtn = queryByTestId('add-btn')
+   expect(addBtn).toBeTruthy()
+  })
 })
