@@ -19,6 +19,5 @@ describe('header', () => {
    const search = queryByTestId('search-bar')
    expect(search).toBeTruthy()
   })
-  it('should display contacts title', () => {})
   it('should display add button', () => {})
 })

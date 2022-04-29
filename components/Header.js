@@ -1,11 +1,20 @@
-import React from 'react'
+import { SearchSource } from 'jest'
+import React, {useState} from 'react'
 import {View, Text, StyleSheet, TextInput} from 'react-native'
 
 const Header = ({title="Contacts" , searchBar=true,addButton=true }) => {
+  
+  const [searchText,setSearchText] = useState('')
+  const onChangeSearchText=(e)=>{
+    setSearchText(e.target.value)
+  }
   return <View style={styles.header}>
     <Text style={styles.title}>{title}</Text>
     <View>
-      <TextInput testID="search-bar"/>
+      <TextInput testID="search-bar"  
+        onChangeText={onChangeSearchText}
+        value={searchText}
+        placeholder="Search contacts..."/>
     </View>
 </View>
 }
