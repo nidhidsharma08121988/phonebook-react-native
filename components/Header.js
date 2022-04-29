@@ -40,8 +40,8 @@ const styles = StyleSheet.create({
   title: {
     color: 'white',
     fontSize: 20,
-    width: 80,
-    maxWidth: 80,
+    width: 90,
+    maxWidth: 90,
     textAlign: 'left',
     padding: 2,
     margin: 5,
