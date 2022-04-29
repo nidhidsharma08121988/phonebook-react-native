@@ -1,11 +1,13 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
+import Contacts from './components/Contacts'
 import Header from './components/Header'
 
 const App = () => {
   return (
     <View style={styles.container}>
       <Header />
+      <Contacts />
     </View>
   )
 }
