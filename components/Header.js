@@ -1,22 +1,22 @@
-import { SearchSource } from 'jest'
 import React, {useState} from 'react'
 import {View, Text, StyleSheet, TextInput} from 'react-native'
+import Icon from 'react-native-vector-icons/dist/FontAwesome'
 
 const Header = ({title="Contacts" , searchBar=true,addButton=true }) => {
-  
   const [searchText,setSearchText] = useState('')
   const onChangeSearchText=(e)=>{
     setSearchText(e.target.value)
   }
-  return <View style={styles.header}>
+  return (<View style={styles.header}>
     <Text style={styles.title}>{title}</Text>
     <View>
-      <TextInput testID="search-bar"  
+      {searchBar && <TextInput testID="search-bar"  
         onChangeText={onChangeSearchText}
         value={searchText}
-        placeholder="Search contacts..."/>
+        placeholder="Search contacts..."/>}
     </View>
-</View>
+      {addButton && <Icon name="plus" fontSize={20} testID="add-btn"/>}
+  </View>)
 }
 
 const styles= StyleSheet.create({
