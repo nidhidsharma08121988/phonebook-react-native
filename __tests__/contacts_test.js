@@ -12,8 +12,8 @@ describe('Contacts', () => {
     expect(queryByText('Contacts Heading')).toBeTruthy()
   })
   test('should display No contacts to display if no contacts in props', () => {
-    const { queryByText } = render(<Contacts contacts={[]} />)
-    const textNoContacts = queryByText('No Contacts to display')
+    const { queryByText } = render(<Contacts />)
+    const textNoContacts = queryByText(/No contacts to display/i)
     expect(textNoContacts).toBeTruthy()
   })
 })
