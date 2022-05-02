@@ -18,9 +18,9 @@ describe('Contacts', () => {
   })
   test('should display list of contacts if contacts are received by component', () => {
     const contacts = [
-      { name: 'Pahi', phone: '+91-8175323462' },
-      { name: 'Pari', phone: '+91-8175323562' },
-      { name: 'Ishaan', phone: '+91-7175323562' },
+      { id: '1', name: 'Pahi', phone: '+91-8175323462' },
+      { id: '2', name: 'Pari', phone: '+91-8175323562' },
+      { id: '3', name: 'Ishaan', phone: '+91-7175323562' },
     ]
     const { queryAllByTestId } = render(<Contacts contacts={contacts} />)
     const contactItems = queryAllByTestId('contact-item')
