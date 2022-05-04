@@ -5,7 +5,7 @@ const Contacts = ({ heading = 'Name', contacts = [] }) => {
   const isContactsLengthGreaterThan0 = contacts.length > 0
   const contactsToDisplay = isContactsLengthGreaterThan0 ? (
     contacts.map(item => (
-      <TouchableOpacity>
+      <TouchableOpacity key={item.id}>
         <View testID='contact-item'>{item.name}</View>
       </TouchableOpacity>
     ))
