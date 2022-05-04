@@ -9,7 +9,6 @@ const contacts = [
 ]
 
 jest.mock('axios')
-axios.get.mockResolvedValue(contacts)
 
 describe('API Calls', () => {
   afterEach(() => {
@@ -19,5 +18,10 @@ describe('API Calls', () => {
     axios.get.mockRejectedValueOnce()
     const data = await getContactsFromApi()
     expect(data).toEqual([])
+  })
+  test('should return contacts if get request is successful', async () => {
+    axios.get.mockResolvedValueOnce(contacts)
+    const data = await getContactsFromApi()
+    expect(data).toEqual(contacts)
   })
 })
