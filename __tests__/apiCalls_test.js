@@ -1,6 +1,13 @@
 import { getContactsFromApi } from '../network_calls/apiCalls'
+import axios from 'axios'
 
-jest.mock('fetch')
+jest.mock('axios')
 describe('API Calls', () => {
-  test('should throw an error when the fetch throws error', () => {})
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+  test('should return empty array if get request fails', () => {
+    axios.get.mockRejectedValueOnce(new Error('Axios failed'))
+    expect(getContactsFromApi()).toEqual([])
+  })
 })
