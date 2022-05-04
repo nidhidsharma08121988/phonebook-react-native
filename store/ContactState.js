@@ -1,15 +1,17 @@
 import React, { createContext, useReducer } from 'react'
 import contactReducer from './contactReducer'
+import { FETCH_CONTACTS } from './types'
 
-const initialState = {}
+const initialState = { contacts: [] }
 export const ContactContext = createContext(initialState)
 
 const ContactState = ({ children }) => {
   const [state, dispatch] = useReducer(contactReducer)
-  const fetchContacts = () => {
-    const data = getContactsFromApi()
+
+  const fetchContacts = async () => {
+    const data = await getContactsFromApi()
     dispatch({
-      type: SET_FETCHED_CONTACT,
+      type: FETCH_CONTACTS,
       payload: data,
     })
   }
