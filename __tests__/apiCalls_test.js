@@ -1,6 +1,6 @@
 import { getContactsFromApi } from '../network_calls/apiCalls'
 import axios from 'axios'
-import { waitFor } from '@testing-library/react-native'
+import { BASE_URL } from '../network_calls/url'
 
 const contacts = [
   { id: '1', name: 'Pahi', phone: '+91-8175323462' },
@@ -22,6 +22,7 @@ describe('API Calls', () => {
   test('should return contacts if get request is successful', async () => {
     axios.get.mockResolvedValueOnce(contacts)
     const data = await getContactsFromApi()
+    expect(axios.get).toHaveBeenCalledWith(`${BASE_URL}/Contacts`)
     expect(data).toEqual(contacts)
   })
 })
