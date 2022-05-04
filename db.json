@@ -1,0 +1,25 @@
+{
+  "Contacts": [
+    {
+      "id": "1",
+      "name": "Heidi",
+      "phone": "+9132435345",
+      "email": "xyz.gmail.com",
+      "address": "Switzerland"
+    },
+    {
+      "id": "2",
+      "name": "Ella",
+      "phone": "+9121414145",
+      "email": "ijk.gmail.com",
+      "address": "Berlin"
+    },
+    {
+      "id": "3",
+      "name": "Cinderella",
+      "phone": "+9111414115",
+      "email": "ijk.gmail.com",
+      "address": "Britain"
+    }
+  ]
+}
