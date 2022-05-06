@@ -2,7 +2,7 @@ import React from 'react'
 import { FETCH_CONTACTS } from './types'
 
 const contactReducer = (state, action) => {
-  switch (action.types) {
+  switch (action.type) {
     case FETCH_CONTACTS:
       return {
         ...state,
