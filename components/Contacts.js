@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { ContactContext } from '../store/ContactState'
 
-const Contacts = ({ heading = 'Name', contacts = [] }) => {
-  const isContactsLengthGreaterThan0 = contacts.length > 0
+const Contacts = ({ heading = 'Name' }) => {
+  const { contacts } = useContext(ContactContext)
+  const [localContactsState, setLocalContactsState] = useState([])
+  useEffect(() => {
+    setLocalContactsState(contacts)
+  }, [contacts])
+
+  const isContactsLengthGreaterThan0 =
+    localContactsState && localContactsState.length > 0
   const contactsToDisplay = isContactsLengthGreaterThan0 ? (
-    contacts.map(item => (
+    localContactsState.map(item => (
       <TouchableOpacity key={item.id}>
-        <View testID='contact-item'>{item.name}</View>
+        <View testID='contact-item'>
+          <Text>{item.name}</Text>
+        </View>
       </TouchableOpacity>
     ))
   ) : (
