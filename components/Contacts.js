@@ -13,9 +13,9 @@ const Contacts = ({ heading = 'Name' }) => {
     localContactsState && localContactsState.length > 0
   const contactsToDisplay = isContactsLengthGreaterThan0 ? (
     localContactsState.map(item => (
-      <TouchableOpacity key={item.id}>
-        <View testID='contact-item'>
-          <Text>{item.name}</Text>
+      <TouchableOpacity key={item.id} style={styles.contactItemContainer}>
+        <View testID='contact-item' style={styles.contactItem}>
+          <Text style={styles.contactName}>{item.name}</Text>
         </View>
       </TouchableOpacity>
     ))
@@ -24,11 +24,28 @@ const Contacts = ({ heading = 'Name' }) => {
   )
 
   return (
-    <View>
-      <Text>{heading}</Text>
+    <View style={styles.container}>
+      <Text style={styles.heading}>{heading}</Text>
       {contactsToDisplay}
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    margin: 15,
+    padding: 5,
+  },
+  heading: {
+    fontWeight: '700',
+    borderBottomWidth: 1,
+    borderBottomColor: 'lightgrey',
+    paddingBottom: 15,
+  },
+  contactItemContainer: {
+    marginBottom: 15,
+    marginTop: 15,
+  },
+})
 
 export default Contacts

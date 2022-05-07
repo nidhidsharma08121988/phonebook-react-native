@@ -56,8 +56,10 @@ const styles = StyleSheet.create({
   search: {
     color: 'white',
     fontSize: 16,
-    padding: 5,
-    borderRadius: 20,
+    paddingLeft: 10,
+    paddingTop: 5,
+    paddingBottom: 5,
+    borderRadius: 10,
     borderWidth: 1,
     borderColor: 'white',
     marginRight: 5,
