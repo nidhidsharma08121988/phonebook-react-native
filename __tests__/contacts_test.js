@@ -3,6 +3,7 @@ import { render, waitFor } from '@testing-library/react-native'
 import Contacts from '../components/Contacts'
 import ContactState from '../store/ContactState'
 import fetchMock from 'jest-fetch-mock'
+import { renderInContextWrapper } from '../test_data/customRenderFunction'
 
 fetchMock.enableMocks()
 
@@ -95,32 +96,22 @@ describe('Contacts', () => {
     expect(queryByText('Name')).toBeTruthy()
   })
   test('should display heading provided in props', () => {
-    const { queryByText } = render(
-      <ContactState value={{ contacts: [] }}>
-        <Contacts heading='Contacts Heading' />
-      </ContactState>
+    const { queryByText } = renderInContextWrapper(
+      <Contacts heading='Contacts Heading' />
     )
     expect(queryByText('Contacts Heading')).toBeTruthy()
   })
   test('should display No contacts to display if no contacts are received', () => {
     fetchMock.mockReject('Network error')
 
-    const { queryByText } = render(
-      <ContactState>
-        <Contacts />
-      </ContactState>
-    )
+    const { queryByText } = renderInContextWrapper(<Contacts />)
     const textNoContacts = queryByText(/No contacts to display/i)
     expect(textNoContacts).toBeTruthy()
   })
   test('should display list of contacts if contacts are received by component', async () => {
     fetchMock.mockResponse(() => Promise.resolve(JSON.stringify(contacts)))
 
-    const { queryAllByTestId } = render(
-      <ContactState value={{ contacts: contacts }}>
-        <Contacts />
-      </ContactState>
-    )
+    const { queryAllByTestId } = renderInContextWrapper(<Contacts />)
 
     await waitFor(() => {
       const contactItems = queryAllByTestId('contact-item')
