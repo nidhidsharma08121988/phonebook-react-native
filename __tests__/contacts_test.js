@@ -1,7 +1,6 @@
 import React from 'react'
 import { render, waitFor } from '@testing-library/react-native'
 import Contacts from '../components/Contacts'
-import ContactState from '../store/ContactState'
 import fetchMock from 'jest-fetch-mock'
 import { renderInContextWrapper } from '../test_data/customRenderFunction'
 
@@ -88,11 +87,7 @@ describe('Contacts', () => {
   })
 
   test('should display Name as heading when no prop', () => {
-    const { queryByText } = render(
-      <ContactState>
-        <Contacts />
-      </ContactState>
-    )
+    const { queryByText } = renderInContextWrapper(<Contacts />)
     expect(queryByText('Name')).toBeTruthy()
   })
   test('should display heading provided in props', () => {
